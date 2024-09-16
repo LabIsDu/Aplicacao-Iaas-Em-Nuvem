@@ -1,10 +1,9 @@
 
 # Aplicação na Nuvem Iaas
 
+Realizamos a implantação de uma aplicação em uma máquina virtual na nuvem, utilizando infraestrutura como serviço (IaaS). A máquina virtual foi controlada remotamente via SSH, permitindo configurar e gerenciar o ambiente. A aplicação foi containerizada com Docker e gerenciada através de Docker Compose, garantindo escalabilidade, isolamento e facilidade de manutenção em ambiente de produção.
 
-Realização da implantação de uma aplicação em uma máquina virtual na nuvem, utilizando infraestrutura como serviço (IaaS). A máquina virtual foi controlada remotamente por meio de SSH, permitindo a configuração e gerenciamento do ambiente. A aplicação foi containerizada com Docker e gerenciada via Docker Compose, garantindo escalabilidade, isolamento e facilidade de manutenção em ambiente de produção.
-A aplicação possui duas rotas que gerem acesso a informações de um banco de dados gerado com MySql, a primeira rota consulta informações da tabela, como nome e colunas existentes enquanto a segunda rota, nomeada como 'data',exibe o banco completo.
-
+A aplicação possui três rotas principais. A rota padrão (/) faz uma consulta ao banco de dados SQLite e exibe os nomes das tabelas existentes. A segunda rota (/data) retorna o conteúdo completo do banco de dados, enquanto a terceira rota (/external) utiliza um serviço separado por meio da biblioteca requests, que faz uma chamada a uma API externa e exibe dados fictícios retornados pela mesma.
 
 ## Instalação
 
@@ -23,16 +22,19 @@ A aplicação possui duas rotas que gerem acesso a informações de um banco de 
  Copie e cole o codigo de cada arquivo:
 
   >meu-app> nano Dockerfile
+  >meu-app> nano docker-compose.yml
   >meu-app> nano requirements.txt
-  >meu-app> nano database.py
+  >meu-app> nano db_init.py
   >meu-app> nano app.py
+  >meu-app> nano requests_worker.py
   
-  obs: execute o script database.py e certifique-se de que o banco foi criado antes de prosseguir.
+  obs: execute o script db_init.py e certifique-se de que o banco foi criado antes de prosseguir.
 
  Builde e execute o docker compose:
 
-  >meu-app> sudo docker build -t app:latest .
-  >meu-app> sudo docker run -t -p 80:80 app:latest
+ >meu-app> sudo docker compose up
+
+ lembre-se de usar o ip da maquina virtual.
 
 
 ```
