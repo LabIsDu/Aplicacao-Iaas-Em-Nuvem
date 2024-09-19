@@ -5,6 +5,14 @@ Realizamos a implantação de uma aplicação em uma máquina virtual na nuvem, 
 
 A aplicação possui três rotas principais. A rota padrão (/) faz uma consulta ao banco de dados SQLite e exibe os nomes das tabelas existentes. A segunda rota (/data) retorna o conteúdo completo do banco de dados, enquanto a terceira rota (/external) utiliza um serviço separado por meio da biblioteca requests, que faz uma chamada a uma API externa e exibe dados fictícios retornados pela mesma.
 
+## Equipe Responsável pela execução do Projeto
+
+- Adão Eduardo Gomes de Oliveira | Matricula: 2023010692
+- Alexandra Silva de Paula | Matrícula: 2023018832
+- Carlos Eduardo de Lima Lira Santana | Matrícula: 2023010629
+- Gustavo Ferreira Reinaldo | Matricula: 2023010997
+- Sayonara Arcanjo da Silva | Matrícula: 2023011107
+
 ## Instalação
 
 ```bash
